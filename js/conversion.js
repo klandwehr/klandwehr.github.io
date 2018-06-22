@@ -15,4 +15,4 @@ function base10_to_base64(num) {
 let timeStampInMs  = window.performance && window.performance.now && window.performance.timing && window.performance.timing.navigationStart ? window.performance.now() + window.performance.timing.navigationStart : Date.now();
 let base64 = base10_to_base64(timeStampInMs);
 
-document.body.innerHTML = "<h1> Job #: " + base64 + "</h1>"
+document.body.innerHTML = "<h1> Job # " + base64 + "</h1>"
