@@ -8,6 +8,93 @@
 </head>
 
 <body>
+<form>
+<div>
+<div><label for="date-1553114225558">Creation Date*</label>
+	<input id="date" name="date-1553114225558" required="required" type="date" aria-required="true" />
+	<button name="button-1553114505832" onclick="TodaysDate();return false">Today's Date</button>
+</div>
+<div>
+	<label for="select-1553113876284">Product Line*</label>
+	<select id="product" name="select-1553113876284" required="required" aria-required="true">
+		<option selected="selected" value="AQ">Aquarius</option>
+		<option value="IN">iNtuition</option>
+		<option value="NS">NorthStar</option>
+		<option value="EN">EnvoyAI</option>
+	</select>
+</div>
+<div>
+	<label for="select-1553114025148">Category*</label>
+	<select id="catagory" name="select-1553114025148" required="required" aria-required="true">
+		<option selected="selected" value="A">Published Advertisement</option>
+		<option value="B">Brochure, Flyer, or Datasheet</option>
+		<option value="C">Blog, Social Media, Email</option>
+		<option value="P">Press Release</option>
+		<option value="U">User or Training Manual</option>
+		<option value="V">Video</option>
+		<option value="W">Website</option>
+		<option value="X">Other</option>
+	</select>
+</div>
+<div>
+	<label for="text-1553114447010">Publication (Initials)</label>
+	<input id="publication" name="text-1553114447010" type="text" placeholder="XX" />
+</div>
+<div>
+	<label for="select-1553114351705">Language</label>
+	<select id="language" name="select-1553114351705">
+		<option selected="selected" value="E">English</option>
+		<option value="F">French</option>
+		<option value="G">German</option>
+		<option value="I">Italian</option>
+		<option value="J">Japanese</option>
+		<option value="P">Portugese</option>
+		<option value="S">Spanish</option>
+	</select>
+</div>
+<div>
+	<label for="number-1553114551571">Revision Level*</label>
+	<input id="revision" name="number-1553114551571" required="required" type="number" placeholder="Revision Level" aria-required="true" />
+</div>
+<div>
+	<button name="button-1553114505888" type="submit" onclick="CodeAssembly();return false">Submit</button>
+</div>
+<div>
+	<p id="GCC"></p>
+</form>
+
+
+<script>
+	function TodaysDate() {
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+		document.getElementById("date").defaultValue = yyyy+"-"+mm+"-"+dd;//"2018-01-25";
+	}
+	function CodeAssembly() {
+		var date = document.getElementById("date").value;
+		date = date.toString();
+		var year = date[2]+date[3];
+		var month = date[5]+date[6];
+		var day = date[8]+date[9];
+		var pline = document.getElementById("product");
+		var plinevalue = pline[pline.selectedIndex].value;
+		var catagory = document.getElementById("catagory");
+		var catagoryvalue = catagory[catagory.selectedIndex].value;
+		var publication = document.getElementById("publication").value;
+		var language = document.getElementById("language");
+		var langaugevalue = language[language.selectedIndex].value;
+		var revision = document.getElementById("revision").value;
+		if(publication){
+			document.getElementById("GCC").innerHTML = month+day+year+plinevalue+"-"+catagoryvalue+"-"+publication+"-"+langaugevalue+revision;
+		}
+		else{
+			document.getElementById("GCC").innerHTML = month+day+year+plinevalue+"-"+catagoryvalue+"-"+langaugevalue+revision;
+		}
+	}
+</script>
+
 
 </body>
 
