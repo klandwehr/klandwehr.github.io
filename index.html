@@ -70,7 +70,7 @@
 		var dd = String(today.getDate()).padStart(2, '0');
 		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 		var yyyy = today.getFullYear();
-		document.getElementById("date").defaultValue = yyyy+"-"+mm+"-"+dd;//"2018-01-25";
+		document.getElementById("date").value = yyyy+"-"+mm+"-"+dd;//"2018-01-25";
 	}
 	function CodeAssembly() {
 		var date = document.getElementById("date").value;
